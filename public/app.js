@@ -10,6 +10,8 @@
   const urlInput = document.getElementById('urlInput');
   const submitBtn = document.getElementById('submitBtn');
   const statusEl = document.getElementById('status');
+  const statusTextEl = document.getElementById('statusText');
+  const spinnerEl = document.getElementById('spinner');
   const errorEl = document.getElementById('error');
   const resultEl = document.getElementById('result');
   const preview = document.getElementById('preview');
@@ -21,7 +23,8 @@
   function setLoading(isLoading, message) {
     submitBtn.disabled = isLoading;
     submitBtn.textContent = isLoading ? 'Загрузка...' : 'Скачать';
-    statusEl.textContent = message || '';
+    statusTextEl.textContent = message || '';
+    spinnerEl.classList.toggle('show', isLoading);
   }
 
   function showError(message) {
